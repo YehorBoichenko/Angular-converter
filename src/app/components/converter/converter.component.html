@@ -1,0 +1,24 @@
+<div class="container">
+  <form class="col s12">
+    <div class="row">
+      <section class="input-field col s5">
+        <input type="number" required name="amount_1" class="validate col s5" min="0" placeholder="Amount" [(ngModel)]="to.value" [disabled]="!to.rate" (input)="toCurrencies()">
+        <select name="rate_1" required class="browser-default col s6 right" [(ngModel)]="to.rate" (change)="toCurrencies()">
+          <option [ngValue]="null" [defaultSelected]="">Select currency</option>
+          <option *ngFor="let currency of rates | keyvalue" [ngValue]=currency.value>
+            {{currency.key}}
+          </option>
+        </select>
+      </section>
+      <section class="input-field col s5 right">
+        <input type="number" required name="amount_2" min="0" class="validate col s5" placeholder="Amount" [(ngModel)]="from.value" [disabled]="!from.rate" (input)="fromCurrencies()">
+        <select required name="rate_2" class="browser-default col s6 right" [(ngModel)]="from.rate" (change)="fromCurrencies()">
+          <option [ngValue]="null">Select currency</option>
+          <option [value]="currency.value" *ngFor="let currency of rates | keyvalue" [ngValue]=currency.value>
+            {{currency.key}}
+          </option>
+        </select>
+      </section>
+    </div>
+  </form>
+</div>

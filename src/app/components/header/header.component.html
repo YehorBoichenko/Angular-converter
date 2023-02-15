@@ -1,0 +1,14 @@
+<header>
+  <div class="col s6">
+    <a href="https://openexchangerates.org/" class="center-align col s12 white-text header__link">Open Exchange Rates</a>
+    <data [value]="date" class="header__date col s12 center-align">
+      {{ date | date: 'dd.MM.yyyy' }}
+    </data>
+  </div>
+  <div class="col s6 flex">
+    <div class="collection col rates">
+      <a class="collection-item center-align">{{ UAH | currency: 'USD ' }} = {{ USD.toFixed(4) | currency: 'UAH ' }}</a>
+      <a class="collection-item center-align">{{ UAH | currency: 'EUR ' }} = {{ EUR.toFixed(4) | currency: 'UAH ' }}</a>
+    </div>
+  </div>
+</header>
